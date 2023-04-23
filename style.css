@@ -28,15 +28,16 @@ body {
 }
 
 .game-container {
-    position: relative;
-    width: 90vmin;
-    height: calc(90vmin * 9 / 16);
-    background-image: url("Background_images/Scene1.png"); /* Update the URL to point to the correct image path */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    overflow: hidden;
-    border: 5px solid #000;
+  position: relative;
+  width: 90vw;
+  height: 450px; /* set a fixed height */
+  max-height: 90vh; /* optional, to ensure the container doesn't overflow */
+  background-image: url("Background_images/Scene1.png"); /* Update the URL to point to the correct image path */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  border: 5px solid #000;
 }
 
 .game-object {

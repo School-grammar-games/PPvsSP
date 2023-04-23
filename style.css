@@ -50,9 +50,9 @@ body {
 
 .new-character {
     position: absolute;
-    bottom: 6%;
-    left: 75%;
-    width: 175px;
+    bottom: 7%;
+    left: 73%;
+    width: 150px;
     height: 140px;
     z-index: 1; /* Set the z-index to 1 to ensure it's displayed below the game object */
 }
@@ -107,11 +107,37 @@ body {
   }
   
   #gameOverImage {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  #finalScore {
+    position: absolute;
+    bottom:450px;
+    left: 65%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  .replay-button {
+    position: absolute;
+    bottom: 350px;
+    left: 65%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    z-index: 10;
   }
   

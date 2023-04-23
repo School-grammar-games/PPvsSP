@@ -1,117 +1,101 @@
 .character-selection {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #ffffff; 
-    z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff; 
+  z-index: 10;
 }
 
 .character-option {
-    width: 300px;
-    height: auto;
-    margin: 0 20px;
-    cursor: pointer;
+  width: 80%;
+  max-width: 300px;
+  height: auto;
+  margin: 0 10%;
+  cursor: pointer;
 }
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #000;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000;
 }
 
 .game-container {
-  position: relative;
-  width: 90vw; /* set the width to 90% of the viewport width */
-  height: calc(90vw * 9 / 16); /* calculate the height based on the aspect ratio (16:9) */
-  max-width: 800px; /* optionally, set a maximum width to avoid making the game too large on large screens */
-  max-height: 450px; /* optionally, set a maximum height to avoid making the game too tall on portrait screens */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  max-width: 800px;
+  height: calc(80vw * 9 / 16);
+  max-height: 450px;
   background-image: url("Background_images/Scene1.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  overflow: hidden;
   border: 5px solid #000;
 }
 
 .game-object {
-    position: absolute;
-    width: 125px;
-    height: 125px;
-    bottom: 5% !important;
+  width: 15%;
+  max-width: 125px;
+  height: auto;
+  margin-bottom: 5%;
 }
 
 .new-character {
-    position: absolute;
-    bottom: 6%;
-    left: 75%;
-    width: 175px;
-    height: 140px;
-    z-index: 1; /* Set the z-index to 1 to ensure it's displayed below the game object */
-}
-.speech-bubble {
-    display: none;
-    position: absolute;
-    bottom: 300px;
-    left: 25%;
-    width: 400px;
-    height: 70px;
-    background-color: #fff;
-    border: 2px solid #000;
-    border-radius: 30px;
-    padding: 10px;
-    z-index: 2;
+  width: 22%;
+  max-width: 175px;
+  height: auto;
+  margin-bottom: 6%;
+  z-index: 1;
 }
 
-.speech-bubble p {
-    margin: 0;
-    font-size: 18px;
-    text-align: center;
+.speech-bubble {
+  display: none;
+  width: 80%;
+  max-width: 400px;
+  height: auto;
+  margin-bottom: 10%;
+  background-color: #fff;
+  border: 2px solid #000;
+  border-radius: 30px;
+  padding: 10px;
+  line-height: 1.2;
+  font-size: 1.2rem;
+  text-align: center;
+  z-index: 2;
 }
 
 .yes-button, .no-button {
-    width: 100px;
-    height: 70px;
-    border-radius: 25px;
-    background-color: #4CAF50;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-  }
-  
-  .yes-button {
-    position: absolute;
-    bottom: 200px;
-    left: 30%;
-  }
-  
-  .no-button {
-    position: absolute;
-    bottom: 200px;
-    left: 60%;
-  }
+  width: 30%;
+  max-width: 100px;
+  height: auto;
+  margin: 0 5%;
+  border-radius: 25px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
 
-  .score {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 25px;
-    color: white;
-  }
-  
-  #gameOverImage {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  
+.score {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 25px;
+  color: white;
+}
+
+#gameOverImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

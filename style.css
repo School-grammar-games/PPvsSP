@@ -115,15 +115,18 @@ body {
     object-fit: contain;
   }
 
-  /* Add a container for the finalScore and replay-button elements */
+/* Add a container for finalScore and replay-button */
 .score-container {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
   width: 100%;
-  position: relative;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
 }
 
 #finalScore {
@@ -131,7 +134,7 @@ body {
   font-weight: bold;
   color: #ffffff;
   text-align: center;
-  margin-bottom: 30px; /* Add some space between finalScore and replay-button */
+  margin-bottom: 20px; /* Add some spacing between the score and the button */
 }
 
 .replay-button {
@@ -146,13 +149,17 @@ body {
 
 /* Add a media query for landscape orientation and max-width */
 @media screen and (orientation: landscape) and (max-width: 767px) {
+  .score-container {
+    display: flex;
+  }
+
   #finalScore {
-    font-size: 24px; /* Adjust font-size for smaller screens */
+    font-size: 24px;
   }
 
   .replay-button {
-    font-size: 16px; /* Adjust font-size for smaller screens */
-    padding: 8px 16px; /* Adjust padding for smaller screens */
+    font-size: 16px;
+    padding: 8px 16px;
   }
 }
 

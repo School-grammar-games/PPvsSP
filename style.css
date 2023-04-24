@@ -124,7 +124,7 @@ body {
     font-weight: bold;
     color: #ffffff;
     text-align: center;
-    z-index: 11; /* Add this line */
+    z-index: 11 !important;
 }
 
 .replay-button {
@@ -139,7 +139,7 @@ body {
     border-radius: 5px;
     padding: 10px 20px;
     cursor: pointer;
-    z-index: 11; /* Add this line */
+    z-index: 11 !important;
 }
 
 /* Media query for mobile devices in landscape mode */
@@ -147,14 +147,14 @@ body {
     #finalScore {
         bottom: 45%;
         font-size: 24px;
-        z-index: 11; /* Add this line */
+        z-index: 11 !important;
     }
 
     .replay-button {
         bottom: 30%;
         font-size: 16px;
         padding: 8px 16px;
-        z-index: 11; /* Add this line */
+        z-index: 11 !important;
     }
 }
 

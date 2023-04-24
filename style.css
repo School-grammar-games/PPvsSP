@@ -211,3 +211,20 @@ body {
     object-fit: cover;
     z-index: 10;
   }
+  .game-container img[src$="F_char_lose.png"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 101%;
+    object-fit: cover;
+    z-index: 10;
+  }  .game-container img[src$="M_char_lose.png"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 101%;
+    object-fit: cover;
+    z-index: 10;
+  }

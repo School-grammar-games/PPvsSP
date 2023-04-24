@@ -223,9 +223,9 @@ function showGameOverImage() {
   gameOverImage.setAttribute('id', 'gameOverImage');
 
   if (selectedCharacter === 'F_char') {
-    gameOverImage.setAttribute('src', 'Finish_images/F_char_GAME.png');
+    gameOverImage.setAttribute('src', 'Finish_images/F_char_lose.png');
   } else if (selectedCharacter === 'M_char') {
-    gameOverImage.setAttribute('src', 'Finish_images/M_char_GAME.png');
+    gameOverImage.setAttribute('src', 'Finish_images/M_char_lose.png');
   }
 
   document.querySelector('.game-over-container').appendChild(gameOverImage);

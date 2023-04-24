@@ -42,6 +42,31 @@ const speechBubbles = {
   'I __________ 3 books this month.': 'no-button',
   'She __________ her coffee already.': 'yes-button',
   'She __________ her coffee 10 minutes ago.': 'no-button',
+  'We __________ the movie, but we do not remember the ending.': 'no-button',
+  'She __________ her homework before dinner.': 'yes-button',
+  'She __________ her homework, so she can watch TV now.': 'no-button',
+  'They __________ to the concert yesterday.': 'yes-button',
+  'They __________ to the concert, but they did not enjoy it.': 'no-button',
+  'I __________ my keys in the car.': 'yes-button',
+  'I __________ my keys in the car, so I cannot drive now.': 'no-button',
+  'He __________ a book two weeks ago.': 'yes-button',
+  'He __________ a book, but he cannot remember the title.': 'no-button',
+  'They __________ a new restaurant last week.': 'yes-button',
+  'They __________ a new restaurant and want to go again.': 'no-button',
+  'She __________ the dishes after lunch.': 'yes-button',
+  'She __________ the dishes, so the kitchen is clean.': 'no-button',
+  'We __________ to the beach an hour ago.': 'yes-button',
+  'We __________ to the beach, and the weather is perfect.': 'no-button',
+  'They __________ a soccer match last Saturday.': 'yes-button',
+  'They __________ a soccer match, but they did not win.': 'no-button',
+  'He __________ a letter to his friend yesterday.': 'yes-button',
+  'He __________ a letter to his friend, but he has not received a reply yet.': 'no-button',
+  'She __________ a bike for her birthday last month.': 'yes-button',
+  'She __________ a bike for her birthday, so she can ride to school.': 'no-button',
+  'I __________ my passport when I traveled to Italy in 2022.': 'yes-button',
+  'I __________ my passport, so I know where it is.': 'no-button',
+  'They __________ a party last weekend.': 'yes-button',
+  'They __________ a party, and everyone had a great time.': 'no-button',
 };
 
 const buttonLabels = {
@@ -69,7 +94,51 @@ const buttonLabels = {
   'I __________ 3 books this month.': ['bought', 'have bought'],
   'She __________ her coffee already.': ['has finished', 'finished'],
   'She __________ her coffee 10 minutes ago.': ['has finished', 'finished'],
+  'We __________ the movie, but we do not remember the ending.': ['watched', 'have watched'],
+  'She __________ her homework before dinner.': ['did', 'has done'],
+  'She __________ her homework, so she can watch TV now.': ['did', 'has done'],
+  'They __________ to the concert yesterday.': ['went', 'have gone'],
+  'They __________ to the concert, but they did not enjoy it.': ['went', 'have gone'],
+  'I __________ my keys in the car.': ['left', 'have left'],
+  'I __________ my keys in the car, so I cannot drive now.': ['left', 'have left'],
+  'He __________ a book two weeks ago.': ['read', 'has read'],
+  'He __________ a book, but he cannot remember the title.': ['read', 'has read'],
+  'They __________ a new restaurant last week.': ['tried', 'have tried'],
+  'They __________ a new restaurant and want to go again.': ['tried', 'have tried'],
+  'She __________ the dishes after lunch.': ['washed', 'has washed'],
+  'She __________ the dishes, so the kitchen is clean.': ['washed', 'has washed'],
+  'We __________ to the beach an hour ago.': ['arrived', 'have arrived'],
+  'We __________ to the beach, and the weather is perfect.': ['arrived', 'have arrived'],
+  'They __________ a soccer match last Saturday.': ['played', 'have played'],
+  'They __________ a soccer match, but they did not win.': ['played', 'have played'],
+  'He __________ a letter to his friend yesterday.': ['wrote', 'has written'],
+  'He __________ a letter to his friend, but he has not received a reply yet.': ['wrote', 'has written'],
+  'She __________ a bike for her birthday last month.': ['got', 'has gotten'],
+  'She __________ a bike for her birthday, so she can ride to school.': ['got', 'has gotten'],
+  'I __________ my passport when I traveled to Italy in 2022.': ['used', 'have used'],
+  'I __________ my passport, so I know where it is.': ['used', 'have used'],
+  'They __________ a party last weekend.': ['had', 'have had'],
+  'They __________ a party, and everyone had a great time.': ['had', 'have had'],
 };
+
+function chooseBubble() {
+  const availableKeys = Object.keys(speechBubbles).filter(key => !usedKeys.includes(key));
+
+  if (availableKeys.length === 0) {
+    return null;
+  }
+
+  const randomIndex = Math.floor(Math.random() * availableKeys.length);
+  const selectedKey = availableKeys[randomIndex];
+  usedKeys.push(selectedKey);
+  return selectedKey;
+}
+
+const usedKeys = [];
+
+function resetUsedKeys() {
+  usedKeys.length = 0;
+}
 
 const unusedKeys = Object.keys(speechBubbles);
 
@@ -158,17 +227,33 @@ function updateScoreDisplay() {
   } else if (score >= 1500 && score <= 1900) {
     document.querySelector('.game-container').style.backgroundImage = 'url("Background_images/Scene4.png")';
     newCharacter.setAttribute('src', 'Character_images/Q_char4.png');
-  } else if (score >= 2100 && score <= 2300) {
+  } else if (score >= 2100 && score <= 2500) {
     document.querySelector('.game-container').style.backgroundImage = 'url("Background_images/Scene5.png")';
     newCharacter.setAttribute('src', 'Character_images/Q_char5.png');
     removeImageElement(2000);
-  } else if (score >= 2400 && score <= 2800) {
+  } else if (score >= 2500 && score <= 3100) {
     document.querySelector('.game-container').style.backgroundImage = 'url("Background_images/Scene6.png")';
     newCharacter.setAttribute('src', 'Character_images/Q_char6.png');
-    removeImageElement(2900);
+    removeImageElement(3200);
+  } else if (score >= 3300 && score <= 3700) {
+    document.querySelector('.game-container').style.backgroundImage = 'url("Background_images/Scene7.png")';
+    newCharacter.setAttribute('src', 'Character_images/Q_char7.png');
+    removeImageElement(2000);
+  } else if (score >= 3700 && score <= 4200) {
+    document.querySelector('.game-container').style.backgroundImage = 'url("Background_images/Scene8.png")';
+    newCharacter.setAttribute('src', 'Character_images/Q_char8.png');
+    removeImageElement(2000);
+  } else if (score >= 4400 && score <= 4900) {
+    document.querySelector('.game-container').style.backgroundImage = 'url("Background_images/Scene9.png")';
+    newCharacter.setAttribute('src', 'Character_images/Q_char11.png');
+    removeImageElement(2000);
+  } else if (score >= 5000 && score <= 5500) {
+    document.querySelector('.game-container').style.backgroundImage = 'url("Background_images/Scene10.png")';
+    newCharacter.setAttribute('src', 'Character_images/Q_char9.png');
+    removeImageElement(2000);
   }
   
-  // add images at 900, 2000, and 2900 points
+  // add images at 900, 2000, 3200, 4300 and 5600 points
   if (score === 900) {
     const imageElement = document.createElement('img');
     imageElement.setAttribute('src', 'Transition_images/1to2world.png');
@@ -179,16 +264,26 @@ function updateScoreDisplay() {
     imageElement.setAttribute('src', 'Transition_images/2to3world.png');
     document.querySelector('.game-container').appendChild(imageElement);
     addContinueButton(2000);
-  } else if (score === 2900) {
+  } else if (score === 3200) {
     const imageElement = document.createElement('img');
     imageElement.setAttribute('src', 'Transition_images/3to4world.png');
     document.querySelector('.game-container').appendChild(imageElement);
-    addContinueButton(2900);
+    addContinueButton(3200);
+  } else if (score === 4300) {
+    const imageElement = document.createElement('img');
+    imageElement.setAttribute('src', 'Transition_images/4to5world.png');
+    document.querySelector('.game-container').appendChild(imageElement);
+    addContinueButton(4300);
+  } else if (score === 5600) {
+    const imageElement = document.createElement('img');
+    imageElement.setAttribute('src', 'Transition_images/5to6world.png');
+    document.querySelector('.game-container').appendChild(imageElement);
+    addContinueButton(5600);
   }
 }
 
 function removeImageElement(scoreValue) {
-  if (scoreValue === 1000 || scoreValue === 2100 || scoreValue === 3000) {
+  if (scoreValue === 1000 || scoreValue === 2100 || scoreValue === 3300 || scoreValue === 4400 || scoreValue === 5600) {
     const transitionImage1 = document.querySelector('.game-container img[src$="1to2world.png"]');
     if (transitionImage1) {
       transitionImage1.remove();
@@ -202,6 +297,16 @@ function removeImageElement(scoreValue) {
     const transitionImage3 = document.querySelector('.game-container img[src$="3to4world.png"]');
     if (transitionImage3) {
       transitionImage3.remove();
+    }
+
+    const transitionImage4 = document.querySelector('.game-container img[src$="4to5world.png"]');
+    if (transitionImage4) {
+      transitionImage4.remove();
+    }
+
+    const transitionImage5 = document.querySelector('.game-container img[src$="5to6world.png"]');
+    if (transitionImage5) {
+      transitionImage5.remove();
     }
   }
 }
@@ -219,7 +324,7 @@ function addContinueButton(scoreValue) {
     continueButton.remove();
   });
 
-  if (scoreValue === 900 || scoreValue === 2000 || scoreValue === 2900) {
+  if (scoreValue === 900 || scoreValue === 2000 || scoreValue === 3200 || scoreValue === 4300 || scoreValue === 5200) {
     document.querySelector('.game-container').appendChild(continueButton);
   }
 }
@@ -243,7 +348,7 @@ function checkAnswer(clickedButton) {
     updateScoreDisplay();
 
     speechBubble.textContent = 'Correct!';
-    currentSpeechBubble = getNextSpeechBubble(currentSpeechBubble);
+    currentSpeechBubble = chooseBubble();
     if (currentSpeechBubble) {
       setTimeout(() => {
         speechBubble.textContent = currentSpeechBubble;
@@ -299,7 +404,7 @@ function resetGame() {
   noButton.style.display = 'block';
   speechBubble.textContent = 'Hello! Welcome to the game! To continue you need to choose the present perfect or the simple past. Here\'s the first task, are you ready?';
 
-  unusedKeys = Object.keys(speechBubbles);
+  resetUsedKeys(); // Add this line to reset usedKeys array when the game is reset
   isGameRunning = false;
   moveSpeed = 3; // reset the moveSpeed to its initial value
   gameLoop();

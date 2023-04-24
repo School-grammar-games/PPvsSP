@@ -115,19 +115,47 @@ body {
     object-fit: contain;
   }
 
+#finalScore {
+    position: absolute;
+    bottom: 450px;
+    left: 65%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    z-index: 11; /* Add this line */
+}
+
+.replay-button {
+    position: absolute;
+    bottom: 350px;
+    left: 65%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    z-index: 11; /* Add this line */
+}
+
 /* Media query for mobile devices in landscape mode */
 @media only screen and (max-width: 800px) and (orientation: landscape) {
-  #finalScore {
-    bottom: 45%;
-    font-size: 24px;
-  }
+    #finalScore {
+        bottom: 45%;
+        font-size: 24px;
+    }
 
-  .replay-button {
-    bottom: 30%;
-    font-size: 16px;
-    padding: 8px 16px;
-  }
+    .replay-button {
+        bottom: 30%;
+        font-size: 16px;
+        padding: 8px 16px;
+    }
 }
+
   .new-character[src$="Q_char3.png"] {
     width: 130px;
     height: 170px;

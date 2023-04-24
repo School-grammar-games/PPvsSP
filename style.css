@@ -116,30 +116,44 @@ body {
   }
 
   #finalScore {
-    position: absolute;
-    bottom:450px;
-    left: 65%;
-    transform: translateX(-50%);
-    font-size: 30px;
-    font-weight: bold;
-    color: #ffffff;
-    text-align: center;
+  position: absolute;
+  bottom: 450px;
+  left: 65%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+}
+
+.replay-button {
+  position: absolute;
+  bottom: 350px;
+  left: 65%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Add a media query for landscape orientation and max-width */
+@media screen and (orientation: landscape) and (max-width: 767px) {
+  #finalScore {
+    bottom: 150px;
+    left: 50%;
   }
 
   .replay-button {
-    position: absolute;
-    bottom: 350px;
-    left: 65%;
-    transform: translateX(-50%);
-    font-size: 18px;
-    font-weight: bold;
-    background-color: #ffffff;
-    color: #000000;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    z-index: 10;
+    bottom: 50px;
+    left: 50%;
   }
+}
+
   .new-character[src$="Q_char3.png"] {
     width: 130px;
     height: 170px;

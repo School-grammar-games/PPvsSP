@@ -219,7 +219,8 @@ body {
     height: 101%;
     object-fit: cover;
     z-index: 10;
-  }  .game-container img[src$="M_char_lose.png"] {
+  }  
+.game-container img[src$="M_char_lose.png"] {
     position: absolute;
     top: 0;
     left: 0;
@@ -227,4 +228,26 @@ body {
     height: 101%;
     object-fit: cover;
     z-index: 10;
+  }
+
+ .replay-button {
+    position: absolute;
+    top: 90%;
+    left: 67%;
+    transform: translate(-50%, -50%);
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .replay-button.active {
+    display: block;
+  }
+  
+  .replay-button:hover {
+    background-color: #3e8e41;
   }

@@ -4,18 +4,46 @@ const noButton = document.querySelector('.no-button');
 const speechBubble = document.querySelector('.speech-bubble');
 const newCharacter = document.querySelector('.new-character');
 const gameOverImage = document.getElementById('gameOverImage');
-let positionX = 0;
-const moveSpeed = 3;
 const gameContainerWidth = document.querySelector('.game-container').clientWidth;
 const gameObjectWidth = gameObject.clientWidth;
+let positionX = 0;
+const moveSpeed = 3;
 const stopPositionX = gameContainerWidth * 0.6;
+const characterImageM1 = new Image();
+const characterImageM2 = new Image();
+const characterImageF1 = new Image();
+const characterImageF2 = new Image();
+
+loadAssets(() => console.log('Assets loaded'));
+
+function loadAssets(callback) {
+  let assetsLoaded = 0;
+  
+  function assetLoaded() {
+    assetsLoaded++;
+    if (assetsLoaded === 4) {
+      callback();
+    }
+  }
+  
+  characterImageM1.src = 'Character_images/M_char1.png';
+  characterImageM1.onload = assetLoaded;
+
+  characterImageM2.src = 'Character_images/M_char2.png';
+  characterImageM2.onload = assetLoaded;
+
+  characterImageF1.src = 'Character_images/F_char1.png';
+  characterImageF1.onload = assetLoaded;
+
+  characterImageF2.src = 'Character_images/F_char2.png';
+  characterImageF2.onload = assetLoaded;
+};
 
 let hasClickedYes = false;
 let currentSpeechBubble;
 let score = 0;
 let selectedCharacter;
 let isGameRunning = false;
-
 
 const speechBubbles = {
   'I __________ to England last summer.': 'yes-button',
@@ -67,6 +95,16 @@ const speechBubbles = {
   'I __________ my passport, so I know where it is.': 'no-button',
   'They __________ a party last weekend.': 'yes-button',
   'They __________ a party, and everyone had a great time.': 'no-button',
+  'I __________ a long walk in the park this morning.': 'yes-button',
+  'I __________ a long walk in the park, so I feel refreshed.': 'no-button',
+  'She __________ her driving test two months ago.': 'yes-button',
+  'She __________ her driving test, so she can drive now.': 'no-button',
+  'He __________ the museum during his trip to Paris.': 'yes-button',
+  'He __________ the museum, and he really enjoyed the art.': 'no-button',
+  'We __________ our grandparents last weekend.': 'yes-button',
+  'We __________ our grandparents, and they are doing well.': 'no-button',
+  'She __________ her room yesterday.': 'yes-button',
+  'She __________ her room, so it looks nice and tidy now.': 'no-button',
 };
 
 const buttonLabels = {
@@ -119,6 +157,16 @@ const buttonLabels = {
   'I __________ my passport, so I know where it is.': ['used', 'have used'],
   'They __________ a party last weekend.': ['had', 'have had'],
   'They __________ a party, and everyone had a great time.': ['had', 'have had'],
+  'I __________ a long walk in the park this morning.': ['took', 'have taken'],
+  'I __________ a long walk in the park, so I feel refreshed.': ['took', 'have taken'],
+  'She __________ her driving test two months ago.': ['passed', 'has passed'],
+  'She __________ her driving test, so she can drive now.': ['passed', 'has passed'],
+  'He __________ the museum during his trip to Paris.': ['visited', 'has visited'],
+  'He __________ the museum, and he really enjoyed the art.': ['visited', 'has visited'],
+  'We __________ our grandparents last weekend.': ['saw', 'have seen'],
+  'We __________ our grandparents, and they are doing well.': ['saw', 'have seen'],
+  'She __________ her room yesterday.': ['cleaned', 'has cleaned'],
+  'She __________ her room, so it looks nice and tidy now.': ['cleaned', 'has cleaned'],
 };
 
 function chooseBubble() {
@@ -221,27 +269,27 @@ function updateScoreDisplay() {
     document.querySelector('.game-container').style.backgroundImage = 'url("Background_images/Scene2.png")';
     newCharacter.setAttribute('src', 'Character_images/Q_char2.png');
   } else if (score >= 1000 && score <= 1400) {
-    document.querySelector('.game-container').style.backgroundImage = 'url("Background_images/Scene3.png")';
-    newCharacter.setAttribute('src', 'Character_images/Q_char3.png');
+    document.querySelector('.game-container').style.backgroundImage = 'url("Background_images/Scene7.png")';
+    newCharacter.setAttribute('src', 'Character_images/Q_char7.png');
     removeImageElement(900);
   } else if (score >= 1500 && score <= 1900) {
+    document.querySelector('.game-container').style.backgroundImage = 'url("Background_images/Scene8.png")';
+    newCharacter.setAttribute('src', 'Character_images/Q_char8.png');
+  } else if (score >= 2100 && score <= 2500) {
     document.querySelector('.game-container').style.backgroundImage = 'url("Background_images/Scene4.png")';
     newCharacter.setAttribute('src', 'Character_images/Q_char4.png');
-  } else if (score >= 2100 && score <= 2500) {
+    removeImageElement(2000);
+  } else if (score >= 2500 && score <= 3100) {
+    document.querySelector('.game-container').style.backgroundImage = 'url("Background_images/Scene3.png")';
+    newCharacter.setAttribute('src', 'Character_images/Q_char3.png');
+    removeImageElement(3200);
+  } else if (score >= 3300 && score <= 3700) {
     document.querySelector('.game-container').style.backgroundImage = 'url("Background_images/Scene5.png")';
     newCharacter.setAttribute('src', 'Character_images/Q_char5.png');
     removeImageElement(2000);
-  } else if (score >= 2500 && score <= 3100) {
+  } else if (score >= 3700 && score <= 4200) {
     document.querySelector('.game-container').style.backgroundImage = 'url("Background_images/Scene6.png")';
     newCharacter.setAttribute('src', 'Character_images/Q_char6.png');
-    removeImageElement(3200);
-  } else if (score >= 3300 && score <= 3700) {
-    document.querySelector('.game-container').style.backgroundImage = 'url("Background_images/Scene7.png")';
-    newCharacter.setAttribute('src', 'Character_images/Q_char7.png');
-    removeImageElement(2000);
-  } else if (score >= 3700 && score <= 4200) {
-    document.querySelector('.game-container').style.backgroundImage = 'url("Background_images/Scene8.png")';
-    newCharacter.setAttribute('src', 'Character_images/Q_char8.png');
     removeImageElement(2000);
   } else if (score >= 4400 && score <= 4900) {
     document.querySelector('.game-container').style.backgroundImage = 'url("Background_images/Scene9.png")';
@@ -250,6 +298,10 @@ function updateScoreDisplay() {
   } else if (score >= 5000 && score <= 5500) {
     document.querySelector('.game-container').style.backgroundImage = 'url("Background_images/Scene10.png")';
     newCharacter.setAttribute('src', 'Character_images/Q_char9.png');
+    removeImageElement(2000);
+  } else if (score >= 5700 && score <= 6500) {
+    document.querySelector('.game-container').style.backgroundImage = 'url("Background_images/Scene11.png")';
+    newCharacter.setAttribute('src', 'Character_images/Q_char10.png');
     removeImageElement(2000);
   }
   
@@ -261,17 +313,17 @@ function updateScoreDisplay() {
     addContinueButton(900);
   } else if (score === 2000) {
     const imageElement = document.createElement('img');
-    imageElement.setAttribute('src', 'Transition_images/2to3world.png');
+    imageElement.setAttribute('src', 'Transition_images/4to5world.png');
     document.querySelector('.game-container').appendChild(imageElement);
     addContinueButton(2000);
   } else if (score === 3200) {
     const imageElement = document.createElement('img');
-    imageElement.setAttribute('src', 'Transition_images/3to4world.png');
+    imageElement.setAttribute('src', 'Transition_images/2to3world.png');
     document.querySelector('.game-container').appendChild(imageElement);
     addContinueButton(3200);
   } else if (score === 4300) {
     const imageElement = document.createElement('img');
-    imageElement.setAttribute('src', 'Transition_images/4to5world.png');
+    imageElement.setAttribute('src', 'Transition_images/3to4world.png');
     document.querySelector('.game-container').appendChild(imageElement);
     addContinueButton(4300);
   } else if (score === 5600) {
@@ -289,17 +341,17 @@ function removeImageElement(scoreValue) {
       transitionImage1.remove();
     }
 
-    const transitionImage2 = document.querySelector('.game-container img[src$="2to3world.png"]');
+    const transitionImage2 = document.querySelector('.game-container img[src$="4to5world.png"]');
     if (transitionImage2) {
       transitionImage2.remove();
     }
 
-    const transitionImage3 = document.querySelector('.game-container img[src$="3to4world.png"]');
+    const transitionImage3 = document.querySelector('.game-container img[src$="2to3world.png"]');
     if (transitionImage3) {
       transitionImage3.remove();
     }
 
-    const transitionImage4 = document.querySelector('.game-container img[src$="4to5world.png"]');
+    const transitionImage4 = document.querySelector('.game-container img[src$="3to4world.png"]');
     if (transitionImage4) {
       transitionImage4.remove();
     }
@@ -311,7 +363,16 @@ function removeImageElement(scoreValue) {
   }
 }
 
+function scoreUpdater() {
+  score++;
+  scoreDisplay.innerHTML = score;
 
+  if ([500, 1000, 2100, 3300, 4400, 5700].includes(score)) {
+    moveCharacter();
+  }
+
+  setTimeout(scoreUpdater, 1000);
+}
 
 function addContinueButton(scoreValue) {
   const continueButton = document.createElement('button');
@@ -410,6 +471,9 @@ function resetGame() {
   gameLoop();
 }
 
+let frameCounter = 0;
+const framesPerSwitch = 15;
+
 function gameLoop() {
   if (!isGameRunning) {
     isGameRunning = true;
@@ -422,6 +486,20 @@ function gameLoop() {
     document.querySelector('.speech-bubble').style.display = 'block';
     yesButton.style.display = 'block';
     noButton.style.display = 'block';
+  } else {
+    // Increment the frame counter
+    frameCounter++;
+
+    // Switch the character image based on the frame counter
+    if (frameCounter >= framesPerSwitch * 2) {
+      frameCounter = 0;
+    }
+
+    if (selectedCharacter === 'F_char') {
+      gameObject.style.backgroundImage = `url('Character_images/${frameCounter < framesPerSwitch ? 'F_char1' : 'F_char2'}.png')`;
+    } else if (selectedCharacter === 'M_char') {
+      gameObject.style.backgroundImage = `url('Character_images/${frameCounter < framesPerSwitch ? 'M_char1' : 'M_char2'}.png')`;
+    }
   }
 
   gameObject.style.left = positionX + 'px';
@@ -432,3 +510,4 @@ function gameLoop() {
 document.getElementById('replayButton').addEventListener('click', () => {
   resetGame();
 });
+

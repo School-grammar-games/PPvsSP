@@ -385,7 +385,7 @@ function addContinueButton(scoreValue) {
     continueButton.remove();
   });
 
-  if (scoreValue === 900 || scoreValue === 2000 || scoreValue === 3200 || scoreValue === 4300 || scoreValue === 5200) {
+  if (scoreValue === 900 || scoreValue === 2000 || scoreValue === 3200 || scoreValue === 4300 || scoreValue === 5600) {
     document.querySelector('.game-container').appendChild(continueButton);
   }
 }

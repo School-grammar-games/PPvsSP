@@ -26,16 +26,16 @@ function loadAssets(callback) {
     }
   }
   
-  characterImageM1.src = 'Character_images/M_char1.png';
+  characterImageM1.src = 'Character_images/M_char1.PNG';
   characterImageM1.onload = assetLoaded;
 
-  characterImageM2.src = 'Character_images/M_char2.png';
+  characterImageM2.src = 'Character_images/M_char2.PNG';
   characterImageM2.onload = assetLoaded;
 
-  characterImageF1.src = 'Character_images/F_char1.png';
+  characterImageF1.src = 'Character_images/F_char1.PNG';
   characterImageF1.onload = assetLoaded;
 
-  characterImageF2.src = 'Character_images/F_char2.png';
+  characterImageF2.src = 'Character_images/F_char2.PNG';
   characterImageF2.onload = assetLoaded;
 };
 

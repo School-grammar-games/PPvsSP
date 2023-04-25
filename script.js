@@ -496,9 +496,9 @@ function gameLoop() {
     }
 
     if (selectedCharacter === 'F_char') {
-      gameObject.style.backgroundImage = `url('Character_images/${frameCounter < framesPerSwitch ? 'F_char1' : 'F_char2'}.png')`;
+      gameObject.style.backgroundImage = `url('Character_images/${frameCounter < framesPerSwitch ? 'F_char_a' : 'F_char_b'}.png')`;
     } else if (selectedCharacter === 'M_char') {
-      gameObject.style.backgroundImage = `url('Character_images/${frameCounter < framesPerSwitch ? 'M_char1' : 'M_char2'}.png')`;
+      gameObject.style.backgroundImage = `url('Character_images/${frameCounter < framesPerSwitch ? 'M_char_a' : 'M_char_b'}.png')`;
     }
   }
 

@@ -299,11 +299,22 @@ function updateScoreDisplay() {
     document.querySelector('.game-container').style.backgroundImage = 'url("Background_images/Scene10.png")';
     newCharacter.setAttribute('src', 'Character_images/Q_char9.png');
     removeImageElement(2000);
-  } else if (score >= 5700 && score <= 6500) {
+  } else if (score >= 5700 && score <= 6300) {
     document.querySelector('.game-container').style.backgroundImage = 'url("Background_images/Scene11.png")';
     newCharacter.setAttribute('src', 'Character_images/Q_char10.png');
-    removeImageElement(2000);
-  }
+    removeImageElement(5600);
+  } else if (score >= 6400) {
+    // Display the winning image when the score is over 6400
+    document.querySelector('.game-container').style.backgroundImage = 'url("Win_image/gewonnen.png")';
+ // Create a new div
+ var div = document.createElement('div');
+
+ // Set the id to 'winningScreen'
+ div.id = 'winningScreen';
+
+ // Append the div to the game container
+ document.querySelector('.game-container').appendChild(div);
+}
   
   // add images at 900, 2000, 3200, 4300 and 5600 points
   if (score === 900) {
@@ -363,17 +374,6 @@ function removeImageElement(scoreValue) {
   }
 }
 
-function scoreUpdater() {
-  score++;
-  scoreDisplay.innerHTML = score;
-
-  if ([500, 1000, 2100, 3300, 4400, 5700].includes(score)) {
-    moveCharacter();
-  }
-
-  setTimeout(scoreUpdater, 1000);
-}
-
 function addContinueButton(scoreValue) {
   const continueButton = document.createElement('button');
   continueButton.textContent = 'Continue';
@@ -398,6 +398,19 @@ function showGameOverImage() {
     gameOverImage.setAttribute('src', 'Finish_images/F_char_lose.png');
   } else if (selectedCharacter === 'M_char') {
     gameOverImage.setAttribute('src', 'Finish_images/M_char_lose.png');
+  }
+
+  document.querySelector('.game-over-container').appendChild(gameOverImage);
+}
+
+function showWinGameImage() {
+  const winGameImage = document.createElement('img');
+  winGameImage.setAttribute('id', 'winGameImage');
+
+  if (selectedCharacter === 'F_char') {
+    winGameImage.setAttribute('src', 'Finish_images/F_char_win.png');
+  } else if (selectedCharacter === 'M_char') {
+    winGameImage.setAttribute('src', 'Finish_images/M_char_win.png');
   }
 
   document.querySelector('.game-over-container').appendChild(gameOverImage);
